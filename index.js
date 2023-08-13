@@ -2,10 +2,17 @@ const axios = require('axios').default;
     const { v4: uuidv4 } = require('uuid');
     require('dotenv').config()
     const express=require("express")
+    const cors=require('cors')
     const app=express()
     // const bodyparser=require('body-parser')
     app.use(express.json())
-
+    app.use(cors({
+        "origin": "*",
+        "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+        "preflightContinue": false,
+        "optionsSuccessStatus": 204
+      }
+       ))
 
     let key = process.env.AZURE_KEY;
     let endpoint = "https://api.cognitive.microsofttranslator.com";
