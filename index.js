@@ -7,10 +7,7 @@ const axios = require('axios').default;
     // const bodyparser=require('body-parser')
     app.use(express.json())
     app.use(cors({
-        "origin": "*",
-        "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-        "preflightContinue": false,
-        "optionsSuccessStatus": 204
+        "origin": "*"
       }
        ))
 
