@@ -5,25 +5,7 @@ const axios = require('axios').default;
     const express=require("express")
     const cors=require('cors')
     const app=express();
-    Sentry.init({
-        dsn: "https://635dd3a4826268be265a69c28012ab76@o4504427949916160.ingest.sentry.io/4505794520809472",
-        integrations: [
-          // enable HTTP calls tracing
-          new Sentry.Integrations.Http({
-            tracing: true
-          }),
-          // enable Express.js middleware tracing
-          new Sentry.Integrations.Express({
-            app
-          }),
-        ],
-        // Performance Monitoring
-        tracesSampleRate: 1.0, // Capture 100% of the transactions, reduce in production!,
-      });
-      
-      // Trace incoming requests
-      app.use(Sentry.Handlers.requestHandler());
-      app.use(Sentry.Handlers.tracingHandler());
+
     // const bodyparser=require('body-parser')
     app.use(express.json())
     app.use(cors({
